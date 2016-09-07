@@ -17,8 +17,8 @@ Plunker Example: https://plnkr.co/edit/1N4onb
 2. add `map` and `packages` to your `systemjs.config.js`
 
         map['ng2-auto-complete'] = 'node_modules/ng2-auto-complete/dist';
-        packages['ng2-auto-complete'] = { main: 'index.js', defaultExtension: 'js' }
-        
+        packages['ng2-auto-complete'] = { main: 'ng2-auto-complete.umd.js', defaultExtension: 'js' }
+
 3. import Ng2AutoCompleteModule to your AppModule
 
         import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
@@ -34,8 +34,8 @@ Plunker Example: https://plnkr.co/edit/1N4onb
 ## Usage it in your code
 
         <input auto-complete [(ngModel)]="myData" [source]="mySource" />
-        
-For full example, please check `test` directory to see the example of;
+
+For full example, please check `app` directory to see the example of;
 
   - `systemjs.config.js`
   - `app.module.ts`
@@ -79,7 +79,9 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
 
     $ git clone https://github.com/ng2-ui/ng2-map.git
     $ cd ng2-popup
-    $ npm install
-    $ npm start
+    $ npm install       # install npm dependencies
+    $ npm run -T        # to see all available commands
+    $ npm start         # to open an example on a web browser, then click 'app' directory
+
 
 

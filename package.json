@@ -3,22 +3,15 @@
   "version": "0.5.5",
   "description": "Angular2 Input Autocomplete",
   "license": "MIT",
-  "main": "release/ng2-auto-complete.umd.js",
-  "typings": "release/ng2-auto-complete.d.ts",
+  "main": "dist/ng2-auto-complete.umd.js",
+  "typings": "dist/ng2-auto-complete.d.ts",
   "scripts": {
     "check": "npm-check --skip-unused",
-    "clean": "npm-run-all -p clean:*",
-    "clean:dist": "rimraf dist",
-    "clean:release": "rimraf release",
+    "clean": "rimraf dist",
     "start": "http-server -o -p 9001",
-    "build": "./build.sh",
-    "release": "npm-run-all -s clean:* release:ts -p release:replace release:build:* -s release:minify",
-    "release:ts": "tsc --outDir release",
-    "release:replace": "node tasks/replace.js",
-    "release:build:umd": "rollup -c -f umd -o release/ng2-auto-complete.umd.js",
-    "release:build:cjs": "rollup -c -f cjs -o release/ng2-auto-complete.cjs.js",
-    "release:build:es": "rollup -c -f es -o release/ng2-auto-complete.es.js",
-    "release:minify": "uglifyjs release/ng2-auto-complete.js --source-map release/ng2-auto-complete.min.js.map --source-map-url release/ng2-auto-complete.js.map --compress --mangle --screw-ie8 --output release/ng2-auto-complete.min.js"
+    "build": "npm-run-all --serial clean build:ts build:umd",
+    "build:ts": "tsc --outDir dist",
+    "build:umd": "rollup -c -f umd -o dist/ng2-auto-complete.umd.js"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",
@@ -34,6 +27,7 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.32",
+    "@types/node": "^6.0.31",
     "http-server": "^0.9.0",
     "ng2-inline-template": "^0.1.1",
     "npm-check": "^5.2.0",
@@ -54,9 +48,6 @@
     "url": "https://github.com/ng2-ui/ng2-auto-complete/issues"
   },
   "homepage": "https://github.com/ng2-ui/ng2-auto-complete#readme",
-  "directories": {
-    "test": "test"
-  },
   "keywords": [
     "angular",
     "auto-complete",

@@ -13,7 +13,7 @@ var banner =
  */`;
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/ng2-auto-complete.ts',
   sourceMap: true,
   moduleId: pkg.name,
   moduleName: pkg.name,
@@ -26,15 +26,20 @@ module.exports = {
     '@angular/core',
     '@angular/common',
     '@angular/core',
+    '@angular/forms',
+    '@angular/http',
     '@angular/platform-browser',
     '@angular/platform-browser-dynamic',
-    'rxjs/Rx'
+    'rxjs/Rx',
+    'rxjs/Subject'
   ],
 
   globals: {
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
     '@angular/compiler': 'ng.compiler',
+    '@angular/forms': 'ng2.forms',
+    '@angular/http': 'ng2.http',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
 
