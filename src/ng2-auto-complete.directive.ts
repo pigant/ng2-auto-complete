@@ -9,7 +9,7 @@ import {
   ComponentResolver,
   Type, ComponentFactoryResolver
 } from '@angular/core';
-import {AutoCompleteComponent} from "./auto-complete.component";
+import {Ng2AutoCompleteComponent} from "./ng2-auto-complete.component";
 import "rxjs/Rx"
 
 /**
@@ -21,7 +21,7 @@ import "rxjs/Rx"
     '(click)': 'showAutoCompleteDropdown()'
   }
 })
-export class AutoCompleteDirective implements OnInit {
+export class Ng2AutoCompleteDirective implements OnInit {
 
   @Input() placeholder: string;
   @Input('list-formatter') listFormatter: (arg: any) => void;
@@ -36,7 +36,7 @@ export class AutoCompleteDirective implements OnInit {
   @Input() ngModel: String;
   @Output() ngModelChange = new EventEmitter();
 
-  public componentRef: ComponentRef<AutoCompleteComponent>;
+  public componentRef: ComponentRef<Ng2AutoCompleteComponent>;
   public el: HTMLElement;   // input or select element
   public acEl: HTMLElement; // auto complete element
 
@@ -69,7 +69,7 @@ export class AutoCompleteDirective implements OnInit {
     document.addEventListener('click', this.hideAutoCompleteDropdown);
     this.hideAutoCompleteDropdown();
 
-    let factory = this.resolver.resolveComponentFactory(AutoCompleteComponent);
+    let factory = this.resolver.resolveComponentFactory(Ng2AutoCompleteComponent);
 
       this.componentRef = this.viewContainerRef.createComponent(factory);
       this.acEl = this.componentRef.location.nativeElement;

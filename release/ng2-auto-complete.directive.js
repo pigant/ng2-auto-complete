@@ -1,21 +1,12 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var core_1 = require('@angular/core');
-var auto_complete_component_1 = require("./auto-complete.component");
+var ng2_auto_complete_component_1 = require("./ng2-auto-complete.component");
 require("rxjs/Rx");
 /**
  * display auto-complete section with input and dropdown list when it is clicked
  */
-var AutoCompleteDirective = (function () {
-    function AutoCompleteDirective(resolver, viewContainerRef) {
+var Ng2AutoCompleteDirective = (function () {
+    function Ng2AutoCompleteDirective(resolver, viewContainerRef) {
         var _this = this;
         this.resolver = resolver;
         this.viewContainerRef = viewContainerRef;
@@ -61,7 +52,7 @@ var AutoCompleteDirective = (function () {
         };
         this.el = this.viewContainerRef.element.nativeElement;
     }
-    AutoCompleteDirective.prototype.ngOnInit = function () {
+    Ng2AutoCompleteDirective.prototype.ngOnInit = function () {
         var divEl = document.createElement("div");
         divEl.className = 'ng2-auto-complete';
         divEl.style.display = 'inline-block';
@@ -70,17 +61,17 @@ var AutoCompleteDirective = (function () {
         divEl.appendChild(this.el);
         this.selectNewValue(this.ngModel);
     };
-    AutoCompleteDirective.prototype.ngOnDestroy = function () {
+    Ng2AutoCompleteDirective.prototype.ngOnDestroy = function () {
         if (this.componentRef) {
             this.componentRef.instance.valueSelected.unsubscribe();
         }
         document.removeEventListener('click', this.hideAutoCompleteDropdown);
     };
     //show auto-complete list below the current element
-    AutoCompleteDirective.prototype.showAutoCompleteDropdown = function () {
+    Ng2AutoCompleteDirective.prototype.showAutoCompleteDropdown = function () {
         document.addEventListener('click', this.hideAutoCompleteDropdown);
         this.hideAutoCompleteDropdown();
-        var factory = this.resolver.resolveComponentFactory(auto_complete_component_1.AutoCompleteComponent);
+        var factory = this.resolver.resolveComponentFactory(ng2_auto_complete_component_1.Ng2AutoCompleteComponent);
         this.componentRef = this.viewContainerRef.createComponent(factory);
         this.acEl = this.componentRef.location.nativeElement;
         var component = this.componentRef.instance;
@@ -99,44 +90,44 @@ var AutoCompleteDirective = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
-    ], AutoCompleteDirective.prototype, "placeholder", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "placeholder", void 0);
     __decorate([
         core_1.Input('list-formatter'), 
         __metadata('design:type', Function)
-    ], AutoCompleteDirective.prototype, "listFormatter", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "listFormatter", void 0);
     __decorate([
         core_1.Input('value-changed'), 
         __metadata('design:type', Function)
-    ], AutoCompleteDirective.prototype, "valueChanged", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "valueChanged", void 0);
     __decorate([
         core_1.Input('source'), 
         __metadata('design:type', Object)
-    ], AutoCompleteDirective.prototype, "source", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "source", void 0);
     __decorate([
         core_1.Input('path-to-data'), 
         __metadata('design:type', String)
-    ], AutoCompleteDirective.prototype, "pathToData", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "pathToData", void 0);
     __decorate([
         core_1.Input('min-chars'), 
         __metadata('design:type', Number)
-    ], AutoCompleteDirective.prototype, "minChars", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "minChars", void 0);
     __decorate([
         core_1.Input('value-property-name'), 
         __metadata('design:type', String)
-    ], AutoCompleteDirective.prototype, "valuePropertyName", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "valuePropertyName", void 0);
     __decorate([
         core_1.Input('display-property-name'), 
         __metadata('design:type', String)
-    ], AutoCompleteDirective.prototype, "displayPropertyName", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "displayPropertyName", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
-    ], AutoCompleteDirective.prototype, "ngModel", void 0);
+    ], Ng2AutoCompleteDirective.prototype, "ngModel", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], AutoCompleteDirective.prototype, "ngModelChange", void 0);
-    AutoCompleteDirective = __decorate([
+    ], Ng2AutoCompleteDirective.prototype, "ngModelChange", void 0);
+    Ng2AutoCompleteDirective = __decorate([
         core_1.Directive({
             selector: '[auto-complete], [ng2-auto-complete]',
             host: {
@@ -144,8 +135,8 @@ var AutoCompleteDirective = (function () {
             }
         }), 
         __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, core_1.ViewContainerRef])
-    ], AutoCompleteDirective);
-    return AutoCompleteDirective;
+    ], Ng2AutoCompleteDirective);
+    return Ng2AutoCompleteDirective;
 }());
-exports.AutoCompleteDirective = AutoCompleteDirective;
-//# sourceMappingURL=auto-complete.directive.js.map
+exports.Ng2AutoCompleteDirective = Ng2AutoCompleteDirective;
+//# sourceMappingURL=ng2-auto-complete.directive.js.map

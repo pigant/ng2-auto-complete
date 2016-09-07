@@ -1,6 +1,6 @@
 import {Component, ElementRef, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Subject} from "rxjs/Subject";
-import {AutoComplete} from './auto-complete';
+import {Ng2AutoComplete} from './ng2-auto-complete.service';
 
 var module: any; // just to pass type check
 /**
@@ -35,7 +35,7 @@ var module: any; // just to pass type check
     </ul>
 
   </div>`,
-  providers: [ AutoComplete ],
+  providers: [ Ng2AutoComplete ],
   styles: [`
   @keyframes slideDown {
     0% {
@@ -88,7 +88,7 @@ var module: any; // just to pass type check
   encapsulation: ViewEncapsulation.None
   // encapsulation: ViewEncapsulation.Emulated is default
 })
-export class AutoCompleteComponent implements OnInit {
+export class Ng2AutoCompleteComponent implements OnInit {
 
   /**
    * public variables
@@ -116,7 +116,7 @@ export class AutoCompleteComponent implements OnInit {
    */
   constructor(
     elementRef: ElementRef,
-    public autoComplete: AutoComplete
+    public autoComplete: Ng2AutoComplete
   ) {
     this.el = elementRef.nativeElement;
   }
