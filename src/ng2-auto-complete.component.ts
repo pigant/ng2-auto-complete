@@ -18,13 +18,12 @@ import { Ng2AutoComplete } from "./ng2-auto-complete";
 @Component({
   selector: "ng2-auto-complete",
   template: `
-  <div class="ng2-auto-complete">
+  <div class="ng2-auto-complete" (blur)="hideDropdownList()">
 
     <!-- keyword input -->
     <input class="keyword"
            placeholder="{{placeholder}}"
            (focus)="showDropdownList()"
-           (blur)="hideDropdownList()"
            (keydown)="inputElKeyHandler($event)"
            (input)="reloadListInDelay()"
            [(ngModel)]="keyword" />
@@ -164,7 +163,7 @@ export class Ng2AutoCompleteComponent implements OnInit {
   }
 
   showDropdownList(): void {
-    this.keyword = this.userInputEl.value;
+    this.keyword = "";
     this.inputEl.style.display = '';
     this.inputEl.focus();
 
